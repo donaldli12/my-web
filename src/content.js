@@ -1,3 +1,5 @@
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+
 export const profileContent = {
   brand: {
     en: "Donald Li",
@@ -12,10 +14,10 @@ export const profileContent = {
   },
   location: "Based in Shanghai/Los Angeles · Available for work",
   resumes: {
-    english: "/resume-en.pdf",
-    chinese: "/resume.pdf"
+    english: assetPath("/resume-en.pdf"),
+    chinese: assetPath("/resume.pdf")
   },
-  videoUrl: "/demos/hero-bg.mp4",
+  videoUrl: assetPath("/demos/hero-bg.mp4"),
   navItems: [
     { key: "me", action: "me" },
     { key: "projects", action: "projects" },
@@ -144,7 +146,7 @@ export const profileContent = {
         zh: "数据科学与商业分析",
         es: "Ciencia de datos y analítica de negocio"
       },
-      logoSrc: "/logos/nyu.webp"
+      logoSrc: assetPath("/logos/nyu.webp")
     },
     {
       shortName: "USC",
@@ -158,7 +160,7 @@ export const profileContent = {
         zh: "整合设计、商业与技术",
         es: "Diseño integrado, negocio y tecnología"
       },
-      logoSrc: "/logos/usc.png"
+      logoSrc: assetPath("/logos/usc.png")
     }
   ],
   projectsPage: {
@@ -191,7 +193,7 @@ export const profileContent = {
         es: "Workspace agent-to-agent"
       },
       url: "https://matrix-site.dev-9b6.workers.dev/",
-      demoVideo: "/demos/matrix-marketplace.mp4",
+      demoVideo: assetPath("/demos/matrix-marketplace.mp4"),
       description: {
         en: "An agent-to-agent workspace concept rebuilt around a new commercial model: every person can spin up an AI-native company, coordinate specialized agents, and move from idea to operating structure.",
         zh: "这是一个 Agent to Agent 工作空间。我重构了它之后的商业模式：每个人都可以开一家属于自己的 AI 原生公司，调度不同专长的 Agent，把想法推进成可以运转的组织结构。",
@@ -210,7 +212,7 @@ export const profileContent = {
         es: "Canvas de IA para trabajo entregable"
       },
       url: "https://flowith.io/home/",
-      demoVideo: "/demos/flowith-1080p.mp4",
+      demoVideo: assetPath("/demos/flowith-1080p.mp4"),
       description: {
         en: "An integrated AI canvas for creators and software builders, helping users combine research, generation, coding, and iteration into deliverable-grade outcomes inside one spatial workflow.",
         zh: "这是一个 AI 画布。无论是创作者还是程序编码者，都可以在集成式画布里完成研究、生成、编码和迭代，最终产出可交付级的结果。",
@@ -229,7 +231,7 @@ export const profileContent = {
         es: "Herramienta de moda con IA"
       },
       url: "https://www.instagram.com/viba_me/",
-      demoVideo: "/demos/viba.mov",
+      demoVideo: assetPath("/demos/viba.mov"),
       description: {
         en: "A fashion AI tool that turns ideas into reality: try on styles from across the world, explore new identities, and find the version of yourself that feels most alive.",
         zh: "这是一个时尚 AI 工具，让你的想法变成现实：帮你试穿这个世界上所有的风格，探索不同的自己，找到真正属于你的那一面。",
