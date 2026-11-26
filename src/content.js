@@ -133,8 +133,8 @@ export const profileContent = {
       { src: assetPath("/me/museum.jpg"), position: "50% 50%", caption: { en: "A different perspective", zh: "换个视角", es: "Otra perspectiva" } },
       { src: assetPath("/me/details.jpg"), position: "50% 50%", caption: { en: "It's in the details", zh: "细节里的自己", es: "Está en los detalles" } },
       { src: assetPath("/me/beyond-work/sydney.jpg"), position: "50% 50%", caption: { en: "An evening in Sydney", zh: "悉尼的傍晚", es: "Una tarde en Sídney" } },
-      { src: assetPath("/me/beyond-work/hardware.jpg"), position: "50% 62%", caption: { en: "New hardware, new possibilities", zh: "新装备，新可能", es: "Nuevo equipo, nuevas posibilidades" } },
-      { src: assetPath("/me/beyond-work/concert.jpg"), position: "50% 50%", caption: { en: "In the crowd", zh: "在音乐现场", es: "Entre el público" } }
+      { src: assetPath("/me/beyond-work/hardware.jpg"), position: "50% 62%", caption: { en: "5080!", zh: "5080!", es: "5080!" } },
+      { src: assetPath("/me/beyond-work/concert.jpg"), position: "50% 50%", caption: { en: "gunna", zh: "gunna", es: "gunna" } }
     ]
   },
   mePage: {
