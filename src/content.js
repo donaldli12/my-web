@@ -1,3 +1,5 @@
+import { personalStory } from "./story";
+
 const assetPath = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
 
 export const profileContent = {
@@ -96,31 +98,24 @@ export const profileContent = {
       intro: "Estrategia, datos, diseño, IA... no vivo dentro de una sola caja."
     }
   },
-  about: {
-    en: {
-      title: "Hi, I'm Donald.",
-      paragraphs: [
-        "I'm deeply passionate about AI — it's not just what I do, it's what I believe will shape a better future. I love the work I'm doing, and I bring genuine optimism to everything I build.",
-        "When I'm not working, you'll find me on the golf course. Golf taught me focus, patience, and a relentless pursuit of getting things right — the same mindset I bring to my craft.",
-        "Passionate about AI. Optimistic about the future."
-      ]
-    },
-    zh: {
-      title: "你好，我是李政琨",
-      paragraphs: [
-        "我是一个对 AI 充满热情的人——它不只是我的工作，更是我相信能够重塑未来的力量。我热爱我现在所做的每一件事，并坚信技术终将让世界变得更好。",
-        "工作之外，你大概率能在高尔夫球场上找到我。专注、耐心、对细节的执着——这是高尔夫教会我的，也是我面对每一个挑战的方式。",
-        "对 AI 满怀热忱，对未来保持乐观。"
-      ]
-    },
-    es: {
-      title: "Hola, soy Donald",
-      paragraphs: [
-        "Me apasiona profundamente la IA: no es solo lo que hago, es lo que creo que puede construir un futuro mejor. Amo el trabajo que hago y llevo optimismo real a todo lo que construyo.",
-        "Cuando no estoy trabajando, probablemente estoy en el campo de golf. El golf me enseñó enfoque, paciencia y una búsqueda constante por hacer bien las cosas: la misma mentalidad que llevo a mi trabajo.",
-        "Apasionado por la IA. Optimista sobre el futuro."
-      ]
-    }
+  about: personalStory,
+  personalMedia: {
+    golfVideo: assetPath("/me/golf.mp4"),
+    golfPoster: assetPath("/me/golf-poster.jpg"),
+    photos: [
+      { src: assetPath("/me/cafe.jpg"), position: "50% 48%", caption: { en: "A slow afternoon", zh: "慢下来的午后", es: "Una tarde sin prisa" } },
+      { src: assetPath("/me/graduation.jpg"), position: "57% 44%", caption: { en: "A new chapter", zh: "新的篇章", es: "Un nuevo capítulo" } },
+      { src: assetPath("/me/museum.jpg"), position: "50% 50%", caption: { en: "A different perspective", zh: "换个视角", es: "Otra perspectiva" } },
+      { src: assetPath("/me/nyu.jpg"), position: "50% 42%", caption: { en: "New York days", zh: "纽约的日子", es: "Días en Nueva York" } },
+      { src: assetPath("/me/classroom.jpg"), position: "50% 44%", caption: { en: "Where it all connects", zh: "在这里，连接一切", es: "Donde todo conecta" } },
+      { src: assetPath("/me/details.jpg"), position: "50% 50%", caption: { en: "It's in the details", zh: "细节里的自己", es: "Está en los detalles" } },
+      { src: assetPath("/me/coast.jpg"), position: "62% 45%", caption: { en: "Chasing the last light", zh: "追着日落的光", es: "La última luz del día" } }
+    ]
+  },
+  mePage: {
+    en: { eyebrow: "A little more me", note: "Curious by nature. Always in motion.", filmEyebrow: "Away from the screen", filmTitle: "A different kind of focus.", filmNote: "A moment on the course", galleryEyebrow: "Life, in a few frames", galleryTitle: "Collected along the way.", galleryHint: "Tap a photograph to take a closer look.", openPhoto: "View photo", closePhoto: "Close photo", previousPhoto: "Previous photo", nextPhoto: "Next photo", pause: "Pause video", play: "Play video", mute: "Mute video", unmute: "Turn sound on" },
+    zh: { eyebrow: "工作之外的我", note: "好奇是本能，探索是日常。", filmEyebrow: "暂时离开屏幕", filmTitle: "专注，也有另一种模样。", filmNote: "球场上的一个瞬间", galleryEyebrow: "生活的几个切片", galleryTitle: "一路走来，收集片刻。", galleryHint: "点开照片，看看画面里的细节。", openPhoto: "查看照片", closePhoto: "关闭照片", previousPhoto: "上一张照片", nextPhoto: "下一张照片", pause: "暂停视频", play: "播放视频", mute: "关闭声音", unmute: "开启声音" },
+    es: { eyebrow: "Un poco más de mí", note: "Curioso por naturaleza. Siempre en movimiento.", filmEyebrow: "Lejos de la pantalla", filmTitle: "Otra forma de concentrarse.", filmNote: "Un momento en el campo", galleryEyebrow: "La vida en unas imágenes", galleryTitle: "Momentos del camino.", galleryHint: "Toca una foto para verla de cerca.", openPhoto: "Ver foto", closePhoto: "Cerrar foto", previousPhoto: "Foto anterior", nextPhoto: "Foto siguiente", pause: "Pausar video", play: "Reproducir video", mute: "Silenciar video", unmute: "Activar sonido" }
   },
   skills: {
     en: [
@@ -183,6 +178,26 @@ export const profileContent = {
   projects: [
     {
       title: {
+        en: "JoyAI",
+        zh: "JoyAI",
+        es: "JoyAI"
+      },
+      eyebrow: {
+        en: "All-in-one AIGC creative studio",
+        zh: "万能 AIGC 创意工坊",
+        es: "Estudio creativo de IA generativa"
+      },
+      url: "https://joyai.com/",
+      demoVideo: assetPath("/demos/joyai.mp4"),
+      posterImage: assetPath("/projects/joyai.png"),
+      description: {
+        en: "An all-in-one AIGC creative platform bringing AI image generation, video creation, a creative canvas, and intelligent chat into one workflow — turning ideas into visual stories.",
+        zh: "集 AI 绘画、图片生成、视频创作、创意画布与智能对话于一体的一站式 AIGC 创作平台，让灵感在同一个工作流中变成图像、视频与创意内容。",
+        es: "Una plataforma creativa de IA generativa que reúne generación de imágenes, creación de video, un lienzo creativo y chat inteligente para convertir ideas en historias visuales."
+      }
+    },
+    {
+      title: {
         en: "Matrix",
         zh: "Matrix",
         es: "Matrix"
@@ -192,7 +207,7 @@ export const profileContent = {
         zh: "Agent to Agent 工作空间",
         es: "Workspace agent-to-agent"
       },
-      url: "https://matrix-site.dev-9b6.workers.dev/",
+      url: "https://matrix.build/",
       demoVideo: assetPath("/demos/matrix-marketplace.mp4"),
       description: {
         en: "An agent-to-agent workspace concept rebuilt around a new commercial model: every person can spin up an AI-native company, coordinate specialized agents, and move from idea to operating structure.",

@@ -18,6 +18,8 @@ import {
   X
 } from "lucide-react";
 import { profileContent } from "./content";
+import { GolfFilm, PhotoFrame, PhotoLightbox } from "./PhotoJournal";
+import LifeStory from "./LifeStory";
 import "./styles.css";
 
 const navDelays = [100, 170, 240];
@@ -553,7 +555,7 @@ function HomePage({ language, onContact }) {
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {profileContent.projects.map((project, index) => (
               <a
                 className="project-card home-project-card liquid-glass group flex min-h-full flex-col rounded-[24px] p-3 sm:p-4"
@@ -570,7 +572,7 @@ function HomePage({ language, onContact }) {
                       {project.eyebrow[language]}
                     </p>
                     <div className="mt-3 flex items-center justify-between gap-3">
-                      <h3 className="text-2xl font-normal leading-tight sm:text-3xl">{project.title[language]}</h3>
+                      <h3 className="display-font text-2xl font-normal leading-tight sm:text-3xl">{project.title[language]}</h3>
                       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-black text-white transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
                         <ArrowUpRight size={17} strokeWidth={1.8} />
                       </span>
@@ -588,6 +590,19 @@ function HomePage({ language, onContact }) {
 }
 
 function ProjectMedia({ project, title }) {
+  if (project.coverImage) {
+    return (
+      <img
+        className="project-media-image"
+        src={project.coverImage}
+        alt={`${title} project cover`}
+        width={960}
+        height={540}
+        loading="lazy"
+      />
+    );
+  }
+
   if (!project.demoVideo) {
     return (
       <div className="project-media-placeholder">
@@ -600,6 +615,7 @@ function ProjectMedia({ project, title }) {
     <video
       className="project-media-video"
       src={project.demoVideo}
+      poster={project.posterImage}
       autoPlay
       muted
       loop
@@ -616,13 +632,15 @@ function ProjectMedia({ project, title }) {
 function MePage({ language, setRoute }) {
   const labels = profileContent.labels[language];
   const about = profileContent.about[language];
+  const copy = profileContent.mePage[language];
+  const media = profileContent.personalMedia;
+  const [photoIndex, setPhotoIndex] = useState(null);
 
   return (
-    <main className="route-surface relative z-10 flex flex-1 flex-col items-center justify-center px-4 py-8 text-center text-black sm:px-6 md:px-12 md:py-10">
-      <section className="mx-auto w-full max-w-4xl">
+    <main className="route-surface me-page relative z-10 text-black">
         <button
-          className="animate-fade-rise mb-5 inline-flex items-center justify-center gap-2 text-sm font-medium text-black/70 transition-colors hover:text-black"
-          style={animationDelay(160)}
+          className="me-back inline-flex items-center gap-2 text-sm font-medium text-black/70 transition-colors hover:text-black"
+          type="button"
           onClick={() => {
             setRoute("home");
             window.location.hash = "";
@@ -632,36 +650,73 @@ function MePage({ language, setRoute }) {
           {labels.backHome}
         </button>
 
-        <div className="grid gap-5">
-          <section className="light-card interactive-frame animate-fade-rise rounded-[28px] p-6 sm:p-8" style={animationDelay(240)}>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-black/45">{labels.me}</p>
-            <h1 className="text-4xl font-normal leading-none sm:text-5xl">{about.title}</h1>
-            <div className="mx-auto mt-6 max-w-2xl space-y-4 text-sm leading-7 text-black/64 sm:text-base">
-              {about.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
+        <section className="me-intro" aria-labelledby="me-heading">
+          <div className="me-intro-copy">
+            <p className="me-eyebrow">{about.eyebrow}</p>
+            <h1 id="me-heading">{about.title}</h1>
+            <div className="me-intro-text">
+              {about.intro.map((paragraph, index) => <p key={paragraph} className={index === 0 ? "me-intro-lead" : ""}>{paragraph}</p>)}
             </div>
-          </section>
+          </div>
+          <div className="me-collage">
+            <PhotoFrame photo={media.photos[0]} language={language} copy={copy} onOpen={() => setPhotoIndex(0)} className="me-photo-main" eager />
+            <PhotoFrame photo={media.photos[6]} language={language} copy={copy} onOpen={() => setPhotoIndex(6)} className="me-photo-coast" eager />
+            <p className="me-collage-note display-font">{copy.note}</p>
+          </div>
+        </section>
 
-          <div className="grid gap-5 md:grid-cols-2">
-            <section className="light-card interactive-frame animate-fade-rise rounded-[28px] p-5 sm:p-6" style={animationDelay(340)}>
-              <div className="mb-4 flex items-center justify-center gap-2">
+        <LifeStory story={about} />
+
+        <section className="me-golf" aria-labelledby="me-golf-heading">
+          <div className="me-golf-copy">
+            <p className="me-eyebrow">{copy.filmEyebrow}</p>
+            <h2 id="me-golf-heading">{about.beyondTitle}</h2>
+            <div className="me-golf-text">
+              {about.beyondWork.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </div>
+            <div className="me-golf-rule" />
+            <p className="me-film-note">{copy.filmNote}</p>
+          </div>
+          <GolfFilm media={media} copy={copy} />
+        </section>
+
+        <section className="me-journal" aria-labelledby="me-journal-heading">
+          <div className="me-journal-heading">
+            <div>
+              <p className="me-eyebrow">{copy.galleryEyebrow}</p>
+              <h2 id="me-journal-heading">{copy.galleryTitle}</h2>
+            </div>
+            <p>{copy.galleryHint}</p>
+          </div>
+          <div className="me-photo-strip">
+            {[1, 2, 3, 4, 5].map((index) => (
+              <PhotoFrame key={media.photos[index].src} photo={media.photos[index]} language={language} copy={copy} onOpen={() => setPhotoIndex(index)} />
+            ))}
+          </div>
+        </section>
+
+          <div className="me-facts">
+            <section>
+              <div className="me-fact-heading">
                 <GraduationCap size={18} strokeWidth={1.8} />
                 <h2 className="text-3xl font-normal">{labels.schools}</h2>
               </div>
               <Schools language={language} />
             </section>
 
-            <section className="light-card interactive-frame animate-fade-rise rounded-[28px] p-5 sm:p-6" style={animationDelay(440)}>
-              <div className="mb-4 flex items-center justify-center gap-2">
+            <section>
+              <div className="me-fact-heading">
                 <WandSparkles size={18} strokeWidth={1.8} />
                 <h2 className="text-3xl font-normal">{labels.skills}</h2>
               </div>
               <SkillGrid language={language} />
             </section>
           </div>
-        </div>
-      </section>
+      <footer className="me-story-closing">
+        {about.closing.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        <p className="me-story-signature display-font"><strong>{about.signature}</strong></p>
+      </footer>
+      <PhotoLightbox photos={media.photos} index={photoIndex} setIndex={setPhotoIndex} language={language} copy={copy} />
     </main>
   );
 }
@@ -707,10 +762,10 @@ function ProjectsPage({ language, setRoute }) {
             </p>
           </div>
 
-          <div className="grid gap-4 lg:grid-cols-3 xl:grid-cols-1">
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
             {profileContent.projects.map((project, index) => (
               <a
-                className="project-card liquid-glass animate-fade-rise group grid gap-4 rounded-[28px] p-4 md:grid-cols-[minmax(220px,0.8fr)_minmax(0,1fr)] xl:grid-cols-[minmax(280px,0.85fr)_minmax(0,1fr)]"
+                className="project-card liquid-glass animate-fade-rise group grid gap-4 rounded-[28px] p-4 xl:grid-cols-[minmax(280px,0.85fr)_minmax(0,1fr)]"
                 href={project.url}
                 key={project.url}
                 rel="noreferrer"
@@ -767,7 +822,7 @@ function Background({ route }) {
     <>
       <video
         ref={videoRef}
-        className={`hero-background-video fixed z-0 w-full object-cover ${route === "projects" ? "is-soft-focus" : ""}`}
+        className={`hero-background-video fixed z-0 w-full object-cover ${route !== "home" ? "is-soft-focus" : ""}`}
         src={profileContent.videoUrl}
         autoPlay
         loop
@@ -778,7 +833,7 @@ function Background({ route }) {
           event.currentTarget.play().catch(() => {});
         }}
       />
-      <div className={`video-tone ${route === "projects" ? "is-soft-focus" : ""}`} />
+      <div className={`video-tone ${route !== "home" ? "is-soft-focus" : ""}`} />
     </>
   );
 }
