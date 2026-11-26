@@ -635,9 +635,8 @@ function MePage({ language, setRoute }) {
   const copy = profileContent.mePage[language];
   const media = profileContent.personalMedia;
   const [photoIndex, setPhotoIndex] = useState(null);
-  const [photoGallery, setPhotoGallery] = useState(media.photos);
-  const heroPhotos = [media.photos[0], media.photos[6]];
-  const beyondPhotos = [media.photos[2], media.photos[5]];
+  const [photoGallery, setPhotoGallery] = useState(media.heroPhotos);
+  const { heroPhotos, beyondPhotos } = media;
   const openPhotos = (photos, index) => {
     setPhotoGallery(photos);
     setPhotoIndex(index);
@@ -667,7 +666,6 @@ function MePage({ language, setRoute }) {
           </div>
           <div className="me-collage">
             <PhotoFrame photo={heroPhotos[0]} language={language} copy={copy} onOpen={() => openPhotos(heroPhotos, 0)} className="me-photo-main" eager />
-            <PhotoFrame photo={heroPhotos[1]} language={language} copy={copy} onOpen={() => openPhotos(heroPhotos, 1)} className="me-photo-coast" eager />
             <p className="me-collage-note display-font">{copy.note}</p>
           </div>
         </section>
@@ -681,15 +679,15 @@ function MePage({ language, setRoute }) {
             <div className="me-golf-text">
               {about.beyondWork.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </div>
-            <div className="me-golf-photos" role="group" aria-label={about.beyondTitle}>
-              {beyondPhotos.map((photo, index) => (
-                <PhotoFrame key={photo.src} photo={photo} language={language} copy={copy} onOpen={() => openPhotos(beyondPhotos, index)} />
-              ))}
-            </div>
             <div className="me-golf-rule" />
             <p className="me-film-note">{copy.filmNote}</p>
           </div>
           <GolfFilm media={media} copy={copy} />
+          <div className="me-golf-photos" role="group" aria-label={about.beyondTitle}>
+            {beyondPhotos.map((photo, index) => (
+              <PhotoFrame key={photo.src} photo={photo} language={language} copy={copy} onOpen={() => openPhotos(beyondPhotos, index)} />
+            ))}
+          </div>
         </section>
 
           <div className="me-facts">

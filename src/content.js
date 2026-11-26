@@ -125,14 +125,16 @@ export const profileContent = {
         ]
       }
     },
-    photos: [
-      { src: assetPath("/me/cafe.jpg"), position: "50% 48%", caption: { en: "A slow afternoon", zh: "慢下来的午后", es: "Una tarde sin prisa" } },
-      { src: assetPath("/me/graduation.jpg"), position: "57% 44%", caption: { en: "A new chapter", zh: "新的篇章", es: "Un nuevo capítulo" } },
-      { src: assetPath("/me/museum.jpg"), position: "50% 50%", caption: { en: "A different perspective", zh: "换个视角", es: "Otra perspectiva" } },
-      { src: assetPath("/me/nyu.jpg"), position: "50% 42%", caption: { en: "New York days", zh: "纽约的日子", es: "Días en Nueva York" } },
-      { src: assetPath("/me/classroom.jpg"), position: "50% 44%", caption: { en: "Where it all connects", zh: "在这里，连接一切", es: "Donde todo conecta" } },
-      { src: assetPath("/me/details.jpg"), position: "50% 50%", caption: { en: "It's in the details", zh: "细节里的自己", es: "Está en los detalles" } },
+    heroPhotos: [
       { src: assetPath("/me/coast.jpg"), position: "62% 45%", caption: { en: "Chasing the last light", zh: "追着日落的光", es: "La última luz del día" } }
+    ],
+    beyondPhotos: [
+      { src: assetPath("/me/cafe.jpg"), position: "50% 48%", caption: { en: "A slow afternoon", zh: "慢下来的午后", es: "Una tarde sin prisa" } },
+      { src: assetPath("/me/museum.jpg"), position: "50% 50%", caption: { en: "A different perspective", zh: "换个视角", es: "Otra perspectiva" } },
+      { src: assetPath("/me/details.jpg"), position: "50% 50%", caption: { en: "It's in the details", zh: "细节里的自己", es: "Está en los detalles" } },
+      { src: assetPath("/me/beyond-work/sydney.jpg"), position: "50% 50%", caption: { en: "An evening in Sydney", zh: "悉尼的傍晚", es: "Una tarde en Sídney" } },
+      { src: assetPath("/me/beyond-work/hardware.jpg"), position: "50% 62%", caption: { en: "New hardware, new possibilities", zh: "新装备，新可能", es: "Nuevo equipo, nuevas posibilidades" } },
+      { src: assetPath("/me/beyond-work/concert.jpg"), position: "50% 50%", caption: { en: "In the crowd", zh: "在音乐现场", es: "Entre el público" } }
     ]
   },
   mePage: {
