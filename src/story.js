@@ -20,8 +20,9 @@ const chapters = [
   },
   {
     id: "saint-bede",
+    institution: "saint-bede",
     subtitle: "My first time away.",
-    title: { zh: "Saint Bede Academy", en: "Saint Bede Academy", es: "Saint Bede Academy" },
+    title: { zh: "芝加哥", en: "Chicago", es: "Chicago" },
     paragraphs: {
       zh: [
         "高二那年，我第一次离开熟悉的环境，独自来到美国，在 Saint Bede Academy 度过了一年。",
@@ -42,34 +43,44 @@ const chapters = [
   },
   {
     id: "london",
+    institution: "kcl",
     subtitle: "A different direction.",
-    title: { zh: "伦敦 & 匹兹堡", en: "London & Pittsburgh", es: "Londres y Pittsburgh" },
+    title: { zh: "伦敦", en: "London", es: "Londres" },
     paragraphs: {
       zh: [
         "高中毕业后，我去了伦敦国王学院。",
         "我喜欢伦敦，也喜欢在那里生活过的日子，但慢慢发现，英国似乎并不是我想长期待下去的地方。",
         "于是，我决定回到美国。",
-        "没有什么特别复杂的原因，只是想换一种生活，看看还有什么别的可能。",
-        "回到美国后，我在匹兹堡大学继续了大学生活。"
+        "没有什么特别复杂的原因，只是想换一种生活，看看还有什么别的可能。"
       ],
       en: [
         "After high school, I went to King's College London.",
         "I loved London and the time I spent there, but gradually realized that the UK wasn't where I wanted to stay long term.",
         "So I decided to return to the United States.",
-        "There wasn't a complicated reason. I just wanted to try a different life and see what other possibilities were out there.",
-        "Back in the United States, I continued my studies at the University of Pittsburgh."
+        "There wasn't a complicated reason. I just wanted to try a different life and see what other possibilities were out there."
       ],
       es: [
         "Después del instituto fui a King's College London.",
         "Me gustaba Londres y disfruté de mi vida allí, pero poco a poco comprendí que el Reino Unido no era donde quería quedarme a largo plazo.",
         "Así que decidí volver a Estados Unidos.",
-        "No hubo un motivo especialmente complicado. Solo quería probar otra forma de vivir y descubrir qué otras posibilidades existían.",
-        "De vuelta en Estados Unidos, continué mis estudios en la Universidad de Pittsburgh."
+        "No hubo un motivo especialmente complicado. Solo quería probar otra forma de vivir y descubrir qué otras posibilidades existían."
       ]
     }
   },
   {
+    id: "pittsburgh",
+    institution: "pitt",
+    subtitle: "Back in the United States.",
+    title: { zh: "匹兹堡", en: "Pittsburgh", es: "Pittsburgh" },
+    paragraphs: {
+      zh: ["回到美国后，我在匹兹堡大学继续了大学生活。"],
+      en: ["Back in the United States, I continued my studies at the University of Pittsburgh."],
+      es: ["De vuelta en Estados Unidos, continué mis estudios en la Universidad de Pittsburgh."]
+    }
+  },
+  {
     id: "new-york",
+    institution: "nyu",
     accent: "purple",
     subtitle: "Places, people, and everything in between.",
     title: { zh: "纽约", en: "New York", es: "Nueva York" },
@@ -124,6 +135,7 @@ const chapters = [
   },
   {
     id: "los-angeles",
+    institution: "usc",
     subtitle: "What's next.",
     title: { zh: "洛杉矶", en: "Los Angeles", es: "Los Ángeles" },
     paragraphs: {
@@ -228,6 +240,7 @@ export const personalStory = Object.fromEntries(
     chapters: chapters.map((chapter, index) => ({
       id: chapter.id,
       accent: chapter.accent,
+      institution: chapter.institution,
       number: String(index + 1).padStart(2, "0"),
       title: chapter.title[language],
       subtitle: chapter.subtitle,

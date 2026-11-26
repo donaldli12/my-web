@@ -389,6 +389,15 @@ a {
 .me-story-chapter:focus-visible { outline: 2px solid #78916e; outline-offset: 10px; }
 .me-story-chapter h3 { font-size: clamp(26px,2.8vw,38px); font-weight: 400; line-height: 1.35; overflow-wrap: anywhere; }
 .me-story-chapter h3 span { color: #78916e; }
+.me-chapter-heading-row { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.me-university-badge { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 7px; padding: 5px 10px 5px 5px; border: 1px solid #dce0d8; border-radius: 999px; color: #3f483a; background: #fff; font-family: "Inter", sans-serif; font-size: 14px; font-weight: 600; line-height: 1; letter-spacing: .03em; }
+.me-university-badge-icon { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; overflow: hidden; }
+.me-university-badge img { display: block; width: 32px; height: 32px; object-fit: contain; }
+.me-university-badge-nyu img { width: 36px; height: 36px; object-fit: cover; }
+.me-university-badge-saint-bede { color: #214e32; border-color: #d0dfd2; }
+.me-university-badge-kcl { color: #a8172b; border-color: #eacdd2; }
+.me-university-badge-nyu { color: #6b21a8; border-color: #dac4ec; }
+.me-university-badge-usc { color: #990000; border-color: #e7cccc; }
 .me-chapter-subtitle { margin-top: 8px; font-size: 24px; line-height: 1.4; font-style: italic; color: #65795e; }
 .me-story-index button.is-purple,
 .me-story-index button.is-purple span,
@@ -497,6 +506,7 @@ a {
   .me-story-index { position: static; display: flex; gap: 8px; overflow-x: auto; padding: 0 0 14px; margin-bottom: 30px; scrollbar-width: thin; scrollbar-color: #84927e transparent; }
   .me-story-index button { width: auto; flex: 0 0 auto; gap: 8px; white-space: nowrap; padding: 8px 12px; background: #f0f3ed; }
   .me-story-chapter { padding-left: 20px; padding-bottom: 40px; }
+  .me-chapter-heading-row { gap: 10px; }
   .me-chapter-text { font-size: 16px; line-height: 1.95; }
   .me-story-closing { margin-top: 48px; padding-top: 30px; font-size: 16px; }
 }
