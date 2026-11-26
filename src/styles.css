@@ -390,6 +390,14 @@ a {
 .me-story-chapter h3 { font-size: clamp(26px,2.8vw,38px); font-weight: 400; line-height: 1.35; overflow-wrap: anywhere; }
 .me-story-chapter h3 span { color: #78916e; }
 .me-chapter-subtitle { margin-top: 8px; font-size: 24px; line-height: 1.4; font-style: italic; color: #65795e; }
+.me-story-index button.is-purple,
+.me-story-index button.is-purple span,
+.me-story-chapter.is-purple h3,
+.me-story-chapter.is-purple h3 span,
+.me-story-chapter.is-purple .me-chapter-subtitle { color: #6b21a8; }
+.me-story-index button.is-purple:hover { background: #f3eafa; }
+.me-story-chapter.is-purple { border-left-color: #dac4ec; }
+.me-story-chapter.is-purple::before { border-color: #6b21a8; background: #6b21a8; }
 .me-chapter-text { max-width: 680px; margin-top: 22px; font-size: 17px; line-height: 1.95; color: #3f473c; }
 .me-chapter-text p + p { margin-top: 16px; }
 .me-story-chapter:last-child { padding-bottom: 20px; border-left-color: transparent; }

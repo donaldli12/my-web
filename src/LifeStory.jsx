@@ -17,14 +17,14 @@ export default function LifeStory({ story }) {
       <div className="me-story-layout">
         <nav className="me-story-index" aria-label={story.chaptersNavigation}>
           {story.chapters.map((chapter) => (
-            <button type="button" key={chapter.id} aria-controls={`me-chapter-${chapter.id}`} onClick={() => goToChapter(chapter.id)}>
+            <button type="button" key={chapter.id} className={chapter.accent === "purple" ? "is-purple" : undefined} aria-controls={`me-chapter-${chapter.id}`} onClick={() => goToChapter(chapter.id)}>
               <span>{chapter.number}</span>{chapter.title}
             </button>
           ))}
         </nav>
         <div className="me-story-chapters">
           {story.chapters.map((chapter) => (
-            <article className="me-story-chapter" id={`me-chapter-${chapter.id}`} key={chapter.id} tabIndex={-1} aria-labelledby={`me-chapter-title-${chapter.id}`}>
+            <article className={`me-story-chapter${chapter.accent === "purple" ? " is-purple" : ""}`} id={`me-chapter-${chapter.id}`} key={chapter.id} tabIndex={-1} aria-labelledby={`me-chapter-title-${chapter.id}`}>
               <header>
                 <h3 id={`me-chapter-title-${chapter.id}`} className="display-font"><span>{chapter.number} — </span>{chapter.title}</h3>
                 <p className="me-chapter-subtitle display-font">{chapter.subtitle}</p>
