@@ -1,11 +1,11 @@
 import React from "react";
 
 const universityBadges = {
-  "saint-bede": { label: "SBA", name: "Saint Bede Academy", file: "saint-bede.png" },
-  kcl: { label: "KCL", name: "King's College London", file: "kcl.png" },
-  pitt: { label: "PITT", name: "University of Pittsburgh", file: "pitt.png" },
-  nyu: { label: "NYU", name: "New York University", file: "nyu.webp" },
-  usc: { label: "USC", name: "University of Southern California", file: "usc.png" }
+  "saint-bede": { name: "Saint Bede Academy", file: "saint-bede.png" },
+  kcl: { name: "King's College London", file: "kcl.png" },
+  pitt: { name: "University of Pittsburgh", file: "pitt.png" },
+  nyu: { name: "New York University", file: "nyu.webp" },
+  usc: { name: "University of Southern California", file: "usc.png" }
 };
 
 function UniversityBadge({ institution }) {
@@ -14,7 +14,6 @@ function UniversityBadge({ institution }) {
   return (
     <span className={`me-university-badge me-university-badge-${institution}`} title={badge.name}>
       <span className="me-university-badge-icon"><img src={`${import.meta.env.BASE_URL}logos/${badge.file}`} alt={badge.name} width="28" height="28" loading="lazy" /></span>
-      <span aria-hidden="true">{badge.label}</span>
     </span>
   );
 }

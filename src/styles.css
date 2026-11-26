@@ -390,7 +390,7 @@ a {
 .me-story-chapter h3 { font-size: clamp(26px,2.8vw,38px); font-weight: 400; line-height: 1.35; overflow-wrap: anywhere; }
 .me-story-chapter h3 span { color: #78916e; }
 .me-chapter-heading-row { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
-.me-university-badge { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 7px; padding: 5px 10px 5px 5px; border: 1px solid #dce0d8; border-radius: 999px; color: #3f483a; background: #fff; font-family: "Inter", sans-serif; font-size: 14px; font-weight: 600; line-height: 1; letter-spacing: .03em; }
+.me-university-badge { display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; width: 48px; height: 48px; padding: 5px; border: 1px solid #dce0d8; border-radius: 50%; background: #fff; }
 .me-university-badge-icon { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; overflow: hidden; }
 .me-university-badge img { display: block; width: 32px; height: 32px; object-fit: contain; }
 .me-university-badge-nyu img { width: 36px; height: 36px; object-fit: cover; }
