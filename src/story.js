@@ -167,7 +167,7 @@ const chapters = [
 
 const copy = {
   zh: {
-    title: "Hi, I'm Donald.",
+    title: "Hi, I'm 李政琨.",
     eyebrow: "关于我",
     intro: [
       "我喜欢思考，也喜欢观察这个世界。",
