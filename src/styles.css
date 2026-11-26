@@ -438,6 +438,9 @@ a {
 .me-golf .me-eyebrow { color: #c3cdb9; }
 .me-golf h2 { max-width: 450px; font-size: clamp(48px, 5.5vw, 78px); font-weight: 400; line-height: 1.03; letter-spacing: -.025em; }
 .me-golf-text { margin-top: 26px; max-width: 400px; font-size: 16px; line-height: 1.9; color: #d0d9cc; }
+.me-golf-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 16px; max-width: 420px; margin-top: 28px; padding: 6px 4px 12px; }
+.me-golf-photos .me-photo-button { aspect-ratio: 3 / 4; }
+.me-golf-photos .me-photo:nth-child(even) { margin-top: 18px; transform: rotate(2deg); }
 .me-golf-rule { width: 44px; height: 1px; margin-top: 34px; background: #c8d0ba; }
 .me-film-note { margin-top: 16px; font-size: 14px; color: #c3cdb9; }
 .me-golf-film { position: relative; width: 100%; overflow: hidden; aspect-ratio: 9 / 16; border-radius: 20px; background: #111d18; box-shadow: 0 8px 40px rgba(0,0,0,.22); }
@@ -447,18 +450,7 @@ a {
 .me-film-controls button:hover { background: rgba(0,0,0,.5); }
 .me-film-controls button:focus-visible { outline: 3px solid #effad8; outline-offset: 3px; }
 
-.me-journal { padding: 85px 0 62px; }
-.me-journal-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 30px; }
-.me-journal-heading .me-eyebrow { margin-bottom: 10px; }
-.me-journal h2 { font-size: clamp(38px,4.8vw,62px); font-weight: 400; line-height: 1.05; }
-.me-journal-heading > p { max-width: 230px; font-size: 14px; line-height: 1.8; color: #68705f; }
-.me-photo-strip { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 18px; align-items: start; padding: 10px 4px 25px; }
-.me-photo-strip-compact { grid-template-columns: repeat(2,minmax(0,1fr)); max-width: 600px; margin-inline: auto; }
-.me-photo-strip .me-photo-button { aspect-ratio: 3 / 4; }
-.me-photo-strip .me-photo:nth-child(even) { margin-top: 36px; transform: rotate(2deg); }
-.me-photo-strip .me-photo:nth-child(3) { transform: rotate(-2deg); }
-.me-photo-strip .me-photo figcaption { padding-left: 2px; padding-right: 2px; }
-.me-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 54px; padding-top: 30px; border-top: 1px solid rgba(42,55,34,.18); }
+.me-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 54px; margin-top: 64px; padding-top: 30px; border-top: 1px solid rgba(42,55,34,.18); }
 .me-facts > section { min-width: 0; }
 .me-fact-heading { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; }
 .me-facts > section > div:last-child { justify-content: flex-start; }
@@ -505,13 +497,7 @@ a {
   .me-golf h2 { font-size: 54px; }
   .me-golf-film { max-width: 330px; justify-self: center; }
   .me-golf-rule { margin-top: 22px; }
-  .me-journal { padding-top: 56px; padding-bottom: 35px; }
-  .me-journal-heading { display: block; margin-bottom: 20px; }
-  .me-journal-heading > p { max-width: none; margin-top: 15px; }
-  .me-photo-strip { display: flex; gap: 16px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; padding: 10px 4px 32px; scrollbar-width: thin; scrollbar-color: #84927e transparent; }
-  .me-photo-strip .me-photo { flex: 0 0 60%; scroll-snap-align: center; }
-  .me-photo-strip .me-photo:nth-child(even) { margin-top: 24px; }
-  .me-facts { grid-template-columns: 1fr; gap: 36px; padding-top: 25px; }
+  .me-facts { grid-template-columns: 1fr; gap: 36px; margin-top: 40px; padding-top: 25px; }
   .me-lightbox { padding: 68px 16px 20px; }
   .me-lightbox-footer { gap: 12px; }
   .me-story { margin-bottom: 48px; padding: 32px 0 0; }

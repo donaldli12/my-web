@@ -637,7 +637,7 @@ function MePage({ language, setRoute }) {
   const [photoIndex, setPhotoIndex] = useState(null);
   const [photoGallery, setPhotoGallery] = useState(media.photos);
   const heroPhotos = [media.photos[0], media.photos[6]];
-  const journalPhotos = [media.photos[2], media.photos[5]];
+  const beyondPhotos = [media.photos[2], media.photos[5]];
   const openPhotos = (photos, index) => {
     setPhotoGallery(photos);
     setPhotoIndex(index);
@@ -681,25 +681,15 @@ function MePage({ language, setRoute }) {
             <div className="me-golf-text">
               {about.beyondWork.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </div>
+            <div className="me-golf-photos" role="group" aria-label={about.beyondTitle}>
+              {beyondPhotos.map((photo, index) => (
+                <PhotoFrame key={photo.src} photo={photo} language={language} copy={copy} onOpen={() => openPhotos(beyondPhotos, index)} />
+              ))}
+            </div>
             <div className="me-golf-rule" />
             <p className="me-film-note">{copy.filmNote}</p>
           </div>
           <GolfFilm media={media} copy={copy} />
-        </section>
-
-        <section className="me-journal" aria-labelledby="me-journal-heading">
-          <div className="me-journal-heading">
-            <div>
-              <p className="me-eyebrow">{copy.galleryEyebrow}</p>
-              <h2 id="me-journal-heading">{copy.galleryTitle}</h2>
-            </div>
-            <p>{copy.galleryHint}</p>
-          </div>
-          <div className="me-photo-strip me-photo-strip-compact">
-            {journalPhotos.map((photo, index) => (
-              <PhotoFrame key={photo.src} photo={photo} language={language} copy={copy} onOpen={() => openPhotos(journalPhotos, index)} />
-            ))}
-          </div>
         </section>
 
           <div className="me-facts">
