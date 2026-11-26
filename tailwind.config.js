@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        inter: ["Lora", "Noto Serif SC", "Source Han Serif SC", "Songti SC", "serif"]
+        inter: ["Noto Serif SC Variable", "Noto Serif SC", "serif"],
+        serif: ["Noto Serif SC Variable", "Noto Serif SC", "serif"]
       }
     }
   },

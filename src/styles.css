@@ -6,9 +6,10 @@
 @tailwind utilities;
 
 :root {
+  --font-editorial: "Noto Serif SC Variable", "Noto Serif SC", serif;
   color: #000000;
   background: #ffffff;
-  font-family: "Inter", "后先代体", "Noto Serif SC", "Source Han Serif SC", "Songti SC", sans-serif;
+  font-family: var(--font-editorial);
   font-size: 15px;
 }
 
@@ -27,20 +28,20 @@ body {
   margin: 0;
   overflow: hidden;
   background: #ffffff;
-  font-family: "Inter", "后先代体", "Noto Serif SC", "Source Han Serif SC", "Songti SC", sans-serif;
+  font-family: var(--font-editorial);
 }
 
 h1,
 h2,
 .display-font {
-  font-family: "Instrument Serif", "后先代体", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  font-family: var(--font-editorial);
 }
 
 .lang-zh,
 .lang-zh h1,
 .lang-zh h2,
 .lang-zh .display-font {
-  font-family: "后先代体", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  font-family: var(--font-editorial);
 }
 
 button,
@@ -351,7 +352,7 @@ a {
 }
 
 .me-intro-copy { position: relative; z-index: 1; padding: 28px 0; }
-.me-intro h1 { font-size: clamp(56px, 6.8vw, 100px); line-height: .98; font-weight: 400; letter-spacing: -.035em; }
+.me-intro h1 { font-size: clamp(56px, 6.8vw, 100px); line-height: 1.08; font-weight: 500; letter-spacing: -.055em; text-wrap: balance; }
 .me-intro-text { max-width: 480px; margin-top: 28px; font-size: 17px; line-height: 1.85; color: #41473e; }
 .me-intro-text p + p { margin-top: 16px; }
 .me-intro-text .me-intro-lead { font-size: 20px; line-height: 1.7; color: #283c2e; }
@@ -377,7 +378,7 @@ a {
 .me-story { margin: 12px 0 84px; padding: 52px 40px 8px; border-top: 1px solid rgba(42,55,34,.18); background: rgba(255,255,255,.86); }
 .me-story-heading { max-width: 1040px; margin: 0 auto 48px; }
 .me-story-heading .me-eyebrow { margin-bottom: 12px; }
-.me-story-heading h2 { font-size: clamp(36px,4.5vw,60px); line-height: 1.2; font-weight: 400; text-wrap: balance; }
+.me-story-heading h2 { font-size: clamp(36px,4.5vw,60px); line-height: 1.25; font-weight: 500; letter-spacing: -.035em; text-wrap: balance; }
 .me-story-layout { display: grid; grid-template-columns: 225px minmax(0,1fr); gap: 60px; align-items: start; max-width: 1040px; margin: 0 auto; }
 .me-story-index { position: sticky; top: 30px; display: grid; gap: 5px; padding: 4px 0; }
 .me-story-index button { display: flex; align-items: baseline; gap: 12px; width: 100%; padding: 12px 10px; border-radius: 8px; text-align: left; font-size: 14px; line-height: 1.65; color: #5b6558; transition: background 180ms,color 180ms; }
@@ -387,8 +388,8 @@ a {
 .me-story-chapter { position: relative; padding: 0 0 48px 28px; border-left: 1px solid #d2dbce; scroll-margin-top: 30px; }
 .me-story-chapter::before { position: absolute; content: ""; top: 12px; left: -4px; width: 7px; height: 7px; border: 1px solid #78916e; border-radius: 50%; background: #fff; }
 .me-story-chapter:focus-visible { outline: 2px solid #78916e; outline-offset: 10px; }
-.me-story-chapter h3 { font-size: clamp(26px,2.8vw,38px); font-weight: 400; line-height: 1.35; overflow-wrap: anywhere; }
-.me-story-chapter h3 span { color: #78916e; }
+.me-story-chapter h3 { font-size: clamp(26px,2.8vw,38px); font-weight: 600; line-height: 1.35; letter-spacing: -.025em; overflow-wrap: anywhere; }
+.me-story-chapter h3 span { color: #78916e; font-size: .8em; font-weight: 300; letter-spacing: .015em; }
 .me-chapter-heading-row { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
 .me-university-badge { display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; width: 48px; height: 48px; padding: 5px; border: 1px solid #dce0d8; border-radius: 50%; background: #fff; }
 .me-university-badge-icon { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; overflow: hidden; }
@@ -396,17 +397,22 @@ a {
 .me-university-badge-nyu img { width: 36px; height: 36px; object-fit: cover; }
 .me-university-badge-saint-bede { color: #214e32; border-color: #d0dfd2; }
 .me-university-badge-kcl { color: #a8172b; border-color: #eacdd2; }
+.me-university-badge-pitt { border-color: #ead8a9; }
 .me-university-badge-nyu { color: #6b21a8; border-color: #dac4ec; }
 .me-university-badge-usc { color: #990000; border-color: #e7cccc; }
-.me-chapter-subtitle { margin-top: 8px; font-size: 24px; line-height: 1.4; font-style: italic; color: #65795e; }
-.me-story-index button.is-purple,
-.me-story-index button.is-purple span,
-.me-story-chapter.is-purple h3,
-.me-story-chapter.is-purple h3 span,
-.me-story-chapter.is-purple .me-chapter-subtitle { color: #6b21a8; }
-.me-story-index button.is-purple:hover { background: #f3eafa; }
-.me-story-chapter.is-purple { border-left-color: #dac4ec; }
-.me-story-chapter.is-purple::before { border-color: #6b21a8; background: #6b21a8; }
+.me-chapter-subtitle { margin-top: 10px; font-size: 21px; line-height: 1.6; font-weight: 400; font-style: italic; letter-spacing: -.015em; color: #65795e; }
+.me-story .is-green { --chapter-color: #236442; --chapter-tint: #edf5ee; --chapter-border: #c8ddce; }
+.me-story .is-red { --chapter-color: #b42332; --chapter-tint: #fff0f0; --chapter-border: #ecc9ce; }
+.me-story .is-yellow { --chapter-color: #b17a00; --chapter-small: #8a6000; --chapter-tint: #fff7df; --chapter-border: #ead8a9; }
+.me-story .is-purple { --chapter-color: #6b21a8; --chapter-tint: #f3eafa; --chapter-border: #dac4ec; }
+.me-story-index button.has-accent,
+.me-story-index button.has-accent span { color: var(--chapter-small, var(--chapter-color)); }
+.me-story-chapter.has-accent h3,
+.me-story-chapter.has-accent h3 span { color: var(--chapter-color); }
+.me-story-chapter.has-accent .me-chapter-subtitle { color: var(--chapter-small, var(--chapter-color)); }
+.me-story-index button.has-accent:hover { background: var(--chapter-tint); }
+.me-story-chapter.has-accent { border-left-color: var(--chapter-border); }
+.me-story-chapter.has-accent::before { border-color: var(--chapter-color); background: var(--chapter-color); }
 .me-chapter-text { max-width: 680px; margin-top: 22px; font-size: 17px; line-height: 1.95; color: #3f473c; }
 .me-chapter-text p + p { margin-top: 16px; }
 .me-story-chapter:last-child { padding-bottom: 20px; border-left-color: transparent; }
@@ -417,7 +423,7 @@ a {
 .me-story-signature strong { font-weight: 600; }
 .me-page .me-intro h1,
 .me-page .me-chapter-subtitle,
-.me-page .me-story-signature { font-family: "Instrument Serif", serif; }
+.me-page .me-story-signature { font-family: var(--font-editorial); }
 
 .me-golf { position: relative; display: grid; grid-template-columns: 1fr minmax(240px, 335px); align-items: center; gap: 60px; overflow: hidden; padding: 36px 54px 36px 60px; border-radius: 32px; color: #fff; background: #1d3028; box-shadow: 0 20px 70px rgba(29,48,40,.14); }
 .me-golf::before { content: ""; position: absolute; width: 550px; height: 550px; left: -340px; top: -180px; border: 1px solid rgba(218,236,191,.1); border-radius: 50%; box-shadow: 0 0 0 70px rgba(218,236,191,.025), 0 0 0 140px rgba(218,236,191,.02); pointer-events: none; }

@@ -20,6 +20,7 @@ const chapters = [
   },
   {
     id: "saint-bede",
+    accent: "green",
     institution: "saint-bede",
     subtitle: "My first time away.",
     title: { zh: "芝加哥", en: "Chicago", es: "Chicago" },
@@ -43,6 +44,7 @@ const chapters = [
   },
   {
     id: "london",
+    accent: "red",
     institution: "kcl",
     subtitle: "A different direction.",
     title: { zh: "伦敦", en: "London", es: "Londres" },
@@ -69,6 +71,7 @@ const chapters = [
   },
   {
     id: "pittsburgh",
+    accent: "yellow",
     institution: "pitt",
     subtitle: "Back in the United States.",
     title: { zh: "匹兹堡", en: "Pittsburgh", es: "Pittsburgh" },
@@ -135,6 +138,7 @@ const chapters = [
   },
   {
     id: "los-angeles",
+    accent: "red",
     institution: "usc",
     subtitle: "What's next.",
     title: { zh: "洛杉矶", en: "Los Angeles", es: "Los Ángeles" },
