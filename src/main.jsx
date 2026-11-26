@@ -635,6 +635,13 @@ function MePage({ language, setRoute }) {
   const copy = profileContent.mePage[language];
   const media = profileContent.personalMedia;
   const [photoIndex, setPhotoIndex] = useState(null);
+  const [photoGallery, setPhotoGallery] = useState(media.photos);
+  const heroPhotos = [media.photos[0], media.photos[6]];
+  const journalPhotos = [media.photos[2], media.photos[5]];
+  const openPhotos = (photos, index) => {
+    setPhotoGallery(photos);
+    setPhotoIndex(index);
+  };
 
   return (
     <main className="route-surface me-page relative z-10 text-black">
@@ -659,13 +666,13 @@ function MePage({ language, setRoute }) {
             </div>
           </div>
           <div className="me-collage">
-            <PhotoFrame photo={media.photos[0]} language={language} copy={copy} onOpen={() => setPhotoIndex(0)} className="me-photo-main" eager />
-            <PhotoFrame photo={media.photos[6]} language={language} copy={copy} onOpen={() => setPhotoIndex(6)} className="me-photo-coast" eager />
+            <PhotoFrame photo={heroPhotos[0]} language={language} copy={copy} onOpen={() => openPhotos(heroPhotos, 0)} className="me-photo-main" eager />
+            <PhotoFrame photo={heroPhotos[1]} language={language} copy={copy} onOpen={() => openPhotos(heroPhotos, 1)} className="me-photo-coast" eager />
             <p className="me-collage-note display-font">{copy.note}</p>
           </div>
         </section>
 
-        <LifeStory story={about} />
+        <LifeStory story={about} galleries={media.chapterGalleries} language={language} copy={copy} onOpenPhotos={openPhotos} />
 
         <section className="me-golf" aria-labelledby="me-golf-heading">
           <div className="me-golf-copy">
@@ -688,9 +695,9 @@ function MePage({ language, setRoute }) {
             </div>
             <p>{copy.galleryHint}</p>
           </div>
-          <div className="me-photo-strip">
-            {[1, 2, 3, 4, 5].map((index) => (
-              <PhotoFrame key={media.photos[index].src} photo={media.photos[index]} language={language} copy={copy} onOpen={() => setPhotoIndex(index)} />
+          <div className="me-photo-strip me-photo-strip-compact">
+            {journalPhotos.map((photo, index) => (
+              <PhotoFrame key={photo.src} photo={photo} language={language} copy={copy} onOpen={() => openPhotos(journalPhotos, index)} />
             ))}
           </div>
         </section>
@@ -716,7 +723,7 @@ function MePage({ language, setRoute }) {
         {about.closing.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         <p className="me-story-signature display-font"><strong>{about.signature}</strong></p>
       </footer>
-      <PhotoLightbox photos={media.photos} index={photoIndex} setIndex={setPhotoIndex} language={language} copy={copy} />
+      <PhotoLightbox photos={photoGallery} index={photoIndex} setIndex={setPhotoIndex} language={language} copy={copy} />
     </main>
   );
 }

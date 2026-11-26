@@ -415,6 +415,13 @@ a {
 .me-story-chapter.has-accent::before { border-color: var(--chapter-color); background: var(--chapter-color); }
 .me-chapter-text { max-width: 680px; margin-top: 22px; font-size: 17px; line-height: 1.95; color: #3f473c; }
 .me-chapter-text p + p { margin-top: 16px; }
+.me-chapter-gallery { margin-top: 28px; }
+.me-chapter-gallery h4 { margin-bottom: 16px; color: var(--chapter-color, #3f473c); font-size: 20px; font-weight: 500; letter-spacing: -.02em; }
+.me-chapter-photos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 16px; padding: 6px 3px 14px; }
+.me-chapter-photos .me-photo-button { aspect-ratio: 3 / 4; }
+.me-chapter-photos .me-photo:nth-child(even) { margin-top: 12px; transform: rotate(1.5deg); }
+.me-chapter-photos.is-single { max-width: 300px; grid-template-columns: minmax(0, 1fr); }
+.me-chapter-photos.is-graduation { max-width: 600px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .me-story-chapter:last-child { padding-bottom: 20px; border-left-color: transparent; }
 .me-golf-text p + p { margin-top: 16px; }
 .me-story-closing { max-width: 810px; margin: 80px auto 0; padding-top: 44px; border-top: 1px solid rgba(42,55,34,.18); text-align: center; color: #46533f; font-size: 17px; line-height: 1.95; }
@@ -446,6 +453,7 @@ a {
 .me-journal h2 { font-size: clamp(38px,4.8vw,62px); font-weight: 400; line-height: 1.05; }
 .me-journal-heading > p { max-width: 230px; font-size: 14px; line-height: 1.8; color: #68705f; }
 .me-photo-strip { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 18px; align-items: start; padding: 10px 4px 25px; }
+.me-photo-strip-compact { grid-template-columns: repeat(2,minmax(0,1fr)); max-width: 600px; margin-inline: auto; }
 .me-photo-strip .me-photo-button { aspect-ratio: 3 / 4; }
 .me-photo-strip .me-photo:nth-child(even) { margin-top: 36px; transform: rotate(2deg); }
 .me-photo-strip .me-photo:nth-child(3) { transform: rotate(-2deg); }
@@ -514,6 +522,10 @@ a {
   .me-story-chapter { padding-left: 20px; padding-bottom: 40px; }
   .me-chapter-heading-row { gap: 10px; }
   .me-chapter-text { font-size: 16px; line-height: 1.95; }
+  .me-chapter-photos,
+  .me-chapter-photos.is-graduation { display: flex; max-width: none; overflow-x: auto; gap: 14px; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: var(--chapter-border, #84927e) transparent; }
+  .me-chapter-photos .me-photo { flex: 0 0 76%; scroll-snap-align: start; }
+  .me-chapter-photos.is-single { display: grid; max-width: 300px; }
   .me-story-closing { margin-top: 48px; padding-top: 30px; font-size: 16px; }
 }
 

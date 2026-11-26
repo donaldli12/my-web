@@ -102,6 +102,29 @@ export const profileContent = {
   personalMedia: {
     golfVideo: assetPath("/me/golf.mp4"),
     golfPoster: assetPath("/me/golf-poster.jpg"),
+    chapterGalleries: {
+      "saint-bede": {
+        photos: [
+          { src: assetPath("/me/chapters/chicago-dinner.jpg"), position: "50% 50%", caption: { zh: "餐桌旁的时光", en: "Around the table", es: "Alrededor de la mesa" } },
+          { src: assetPath("/me/chapters/chicago-football.jpg"), position: "50% 50%", caption: { zh: "橄榄球 · 52 号", en: "Football · No. 52", es: "Fútbol americano · N.º 52" } },
+          { src: assetPath("/me/chapters/chicago-basketball.jpg"), position: "50% 50%", caption: { zh: "篮球 · 15 号", en: "Basketball · No. 15", es: "Baloncesto · N.º 15" } }
+        ]
+      },
+      london: {
+        photos: [
+          { src: assetPath("/me/chapters/london-canary-wharf.jpg"), position: "50% 50%", caption: { zh: "Canary Wharf", en: "Canary Wharf", es: "Canary Wharf" } }
+        ]
+      },
+      "new-york": {
+        title: { zh: "毕业典礼", en: "Graduation", es: "Graduación" },
+        photos: [
+          { src: assetPath("/me/chapters/nyu-ceremony.jpg"), position: "50% 50%", caption: { zh: "NYU 毕业典礼", en: "NYU graduation ceremony", es: "Ceremonia de graduación de NYU" } },
+          { src: assetPath("/me/graduation.jpg"), position: "57% 44%", caption: { zh: "喷泉前的毕业照", en: "Graduation by the fountain", es: "Graduación junto a la fuente" } },
+          { src: assetPath("/me/nyu.jpg"), position: "50% 42%", caption: { zh: "NYU 校园旁的毕业照", en: "A graduation portrait at NYU", es: "Un retrato de graduación en NYU" } },
+          { src: assetPath("/me/classroom.jpg"), position: "50% 44%", caption: { zh: "教室里的毕业照", en: "Graduation in the classroom", es: "Graduación en el aula" } }
+        ]
+      }
+    },
     photos: [
       { src: assetPath("/me/cafe.jpg"), position: "50% 48%", caption: { en: "A slow afternoon", zh: "慢下来的午后", es: "Una tarde sin prisa" } },
       { src: assetPath("/me/graduation.jpg"), position: "57% 44%", caption: { en: "A new chapter", zh: "新的篇章", es: "Un nuevo capítulo" } },

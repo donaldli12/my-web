@@ -1,4 +1,5 @@
 import React from "react";
+import { PhotoFrame } from "./PhotoJournal";
 
 const universityBadges = {
   "saint-bede": { name: "Saint Bede Academy", file: "saint-bede.png" },
@@ -18,7 +19,7 @@ function UniversityBadge({ institution }) {
   );
 }
 
-export default function LifeStory({ story }) {
+export default function LifeStory({ story, galleries, language, copy, onOpenPhotos }) {
   const goToChapter = (id) => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const chapter = document.getElementById(`me-chapter-${id}`);
@@ -41,7 +42,9 @@ export default function LifeStory({ story }) {
           ))}
         </nav>
         <div className="me-story-chapters">
-          {story.chapters.map((chapter) => (
+          {story.chapters.map((chapter) => {
+            const gallery = galleries[chapter.id];
+            return (
             <article className={`me-story-chapter${chapter.accent ? ` has-accent is-${chapter.accent}` : ""}`} id={`me-chapter-${chapter.id}`} key={chapter.id} tabIndex={-1} aria-labelledby={`me-chapter-title-${chapter.id}`}>
               <header>
                 <div className="me-chapter-heading-row">
@@ -53,8 +56,19 @@ export default function LifeStory({ story }) {
               <div className="me-chapter-text">
                 {chapter.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               </div>
+              {gallery && (
+                <div className="me-chapter-gallery">
+                  {gallery.title && <h4>{gallery.title[language]}</h4>}
+                  <div className={`me-chapter-photos${gallery.photos.length === 1 ? " is-single" : ""}${gallery.photos.length === 4 ? " is-graduation" : ""}`} role="group" aria-label={gallery.title?.[language] ?? chapter.title}>
+                    {gallery.photos.map((photo, index) => (
+                      <PhotoFrame key={photo.src} photo={photo} language={language} copy={copy} onOpen={() => onOpenPhotos(gallery.photos, index)} />
+                    ))}
+                  </div>
+                </div>
+              )}
             </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
