@@ -12,7 +12,8 @@ export const profileContent = {
   contact: {
     email: "donaldlizhengkun@outlook.com",
     phone: "+86 15838133788",
-    instagram: "donaldli1"
+    instagram: "donaldli1",
+    twitter: "Oink772739o"
   },
   location: "Based in Shanghai/Los Angeles · Available for work",
   resumes: {

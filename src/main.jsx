@@ -593,7 +593,7 @@ function HomePage({ language, onContact }) {
 function ContactFooter({ language, onContact }) {
   const copy = profileContent.footer[language];
   const labels = profileContent.labels[language];
-  const { email, phone, instagram } = profileContent.contact;
+  const { email, phone, instagram, twitter } = profileContent.contact;
   const goToTop = () => document.querySelector(".app-shell")?.scrollTo({ top: 0, behavior: "instant" });
 
   return (
@@ -607,6 +607,7 @@ function ContactFooter({ language, onContact }) {
         <div>
           <h3>{copy.elsewhere}</h3>
           <a href={`https://www.instagram.com/${instagram}/`} target="_blank" rel="noreferrer">Instagram</a>
+          <a href={`https://x.com/${twitter}`} target="_blank" rel="noreferrer">Twitter / X</a>
           <a href="https://github.com/donaldli12" target="_blank" rel="noreferrer">GitHub</a>
         </div>
         <nav aria-label={copy.explore}>
