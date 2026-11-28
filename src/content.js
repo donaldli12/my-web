@@ -76,6 +76,11 @@ export const profileContent = {
       skills: "Habilidades"
     }
   },
+  homeAbout: {
+    en: { eyebrow: "The person behind the projects", link: "Get to know me", note: "A few cities. A lot of curiosity.", interests: ["Building AI products", "Golf", "Exploring new places"] },
+    zh: { eyebrow: "作品背后的我", link: "了解更多关于我", note: "走过一些城市，始终保持好奇。", interests: ["构建 AI 产品", "高尔夫", "走走看看"] },
+    es: { eyebrow: "La persona detrás de los proyectos", link: "Conóceme mejor", note: "Algunas ciudades. Mucha curiosidad.", interests: ["Crear productos de IA", "Golf", "Explorar nuevos lugares"] }
+  },
   footer: {
     en: { eyebrow: "Let's talk", title: "Let's make something", emphasis: "crazy together.", elsewhere: "Elsewhere", explore: "Explore", contact: "Get in touch", note: "Still curious. Still building." },
     zh: { eyebrow: "聊聊新想法", title: "一起把大胆的想法，", emphasis: "变成现实。", elsewhere: "在别处找到我", explore: "继续探索", contact: "保持联系", note: "保持好奇，继续创造。" },

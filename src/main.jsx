@@ -585,8 +585,35 @@ function HomePage({ language, onContact }) {
           </div>
         </div>
       </section>
+      <HomeAbout language={language} />
       <ContactFooter language={language} onContact={onContact} />
     </main>
+  );
+}
+
+function HomeAbout({ language }) {
+  const copy = profileContent.homeAbout[language];
+  const about = profileContent.about[language];
+  const photo = profileContent.personalMedia.heroPhotos[0];
+
+  return (
+    <section className="home-about" aria-labelledby="home-about-heading">
+      <figure className="home-about-portrait">
+        <img src={photo.src} alt={profileContent.brand[language]} loading="lazy" decoding="async" width="800" height="1000" style={{ objectPosition: photo.position }} />
+        <figcaption>{copy.note}</figcaption>
+      </figure>
+      <div className="home-about-copy">
+        <p className="home-about-eyebrow">{copy.eyebrow}</p>
+        <h2 id="home-about-heading">{about.title}</h2>
+        <div className="home-about-text">
+          {about.intro.slice(0, 2).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        </div>
+        <ul className="home-about-interests" aria-label={copy.eyebrow}>
+          {copy.interests.map((interest) => <li key={interest}>{interest}</li>)}
+        </ul>
+        <a className="home-about-link" href="#me" onClick={() => document.querySelector(".app-shell")?.scrollTo({ top: 0, behavior: "instant" })}>{copy.link}</a>
+      </div>
+    </section>
   );
 }
 
