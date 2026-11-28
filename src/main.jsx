@@ -20,6 +20,7 @@ import {
 import { profileContent } from "./content";
 import { GolfFilm, PhotoFrame, PhotoLightbox } from "./PhotoJournal";
 import LifeStory from "./LifeStory";
+import useHomeScroll from "./useHomeScroll";
 import "./styles.css";
 
 const navDelays = [100, 170, 240];
@@ -273,7 +274,7 @@ function Navbar({ language, setLanguage, route, setRoute, onContact, onLocation 
   }
 
   return (
-    <header className="relative z-50 px-4 py-4 text-black sm:px-6 md:px-8 md:py-6">
+    <header className={`relative z-50 px-4 py-4 text-black sm:px-6 md:px-8 md:py-6${route === "home" ? " home-sticky-nav" : ""}`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between">
         <button
           className="display-font animate-fade-rise flex h-8 items-center text-xl font-normal tracking-tight transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.03] hover:text-black/60 md:h-10 md:text-2xl"
@@ -508,7 +509,7 @@ function HomePage({ language, onContact }) {
   const page = profileContent.projectsPage[language];
 
   return (
-    <main className="route-surface relative z-10 text-black">
+    <main className="route-surface home-page relative z-10 text-black">
       <section
         className="home-hero relative flex min-h-[calc(100dvh-72px)] flex-col items-center justify-center px-5 pb-32 pt-8 text-center sm:px-6 sm:pb-36 md:min-h-[calc(100dvh-88px)]"
         style={{ perspective: "1200px" }}
@@ -541,6 +542,7 @@ function HomePage({ language, onContact }) {
         </button>
       </section>
 
+      <div className="home-content">
       <section className="home-projects-section px-4 py-10 sm:px-6 md:px-8 md:py-14">
         <div className="mx-auto max-w-7xl">
           <div className="mb-6 text-center md:mb-8">
@@ -585,33 +587,41 @@ function HomePage({ language, onContact }) {
           </div>
         </div>
       </section>
-      <HomeAbout language={language} />
+      <HomeAbout language={language} onContact={onContact} />
       <ContactFooter language={language} onContact={onContact} />
+      </div>
     </main>
   );
 }
 
-function HomeAbout({ language }) {
+function HomeAbout({ language, onContact }) {
   const copy = profileContent.homeAbout[language];
   const about = profileContent.about[language];
   const photo = profileContent.personalMedia.heroPhotos[0];
 
   return (
     <section className="home-about" aria-labelledby="home-about-heading">
-      <figure className="home-about-portrait">
-        <img src={photo.src} alt={profileContent.brand[language]} loading="lazy" decoding="async" width="800" height="1000" style={{ objectPosition: photo.position }} />
-        <figcaption>{copy.note}</figcaption>
-      </figure>
-      <div className="home-about-copy">
-        <p className="home-about-eyebrow">{copy.eyebrow}</p>
+      <p className="home-about-eyebrow">{copy.eyebrow}</p>
+      <div className="home-about-profile">
+        <img className="home-about-avatar" src={photo.src} alt={profileContent.brand[language]} loading="lazy" decoding="async" width="240" height="240" style={{ objectPosition: photo.position }} />
         <h2 id="home-about-heading">{about.title}</h2>
-        <div className="home-about-text">
-          {about.intro.slice(0, 2).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        <p className="home-about-role">{copy.role}</p>
+        <p className="home-about-intro">{copy.intro}</p>
+        <div className="home-about-actions">
+          <button className="home-about-link" type="button" onClick={onContact}>{copy.contact}</button>
+          <a className="home-about-story" href="#me" onClick={() => document.querySelector(".app-shell")?.scrollTo({ top: 0, behavior: "instant" })}>{copy.link}</a>
         </div>
-        <ul className="home-about-interests" aria-label={copy.eyebrow}>
-          {copy.interests.map((interest) => <li key={interest}>{interest}</li>)}
-        </ul>
-        <a className="home-about-link" href="#me" onClick={() => document.querySelector(".app-shell")?.scrollTo({ top: 0, behavior: "instant" })}>{copy.link}</a>
+      </div>
+      <div className="home-about-approach">
+        <h3 className="home-about-statement">{copy.statement}</h3>
+        <div className="home-about-disciplines">
+          {copy.disciplines.map((discipline) => (
+            <article key={discipline.title}>
+              <h4>{discipline.title}</h4>
+              <p>{discipline.text}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -627,7 +637,7 @@ function ContactFooter({ language, onContact }) {
     <footer className="contact-footer" aria-labelledby="contact-footer-heading">
       <div className="contact-footer-invitation">
         <p className="contact-footer-eyebrow">{copy.eyebrow}</p>
-        <h2 id="contact-footer-heading">{copy.title}<br /><em>{copy.emphasis}</em></h2>
+        <h2 id="contact-footer-heading"><span className="contact-footer-dot" aria-hidden="true" />{copy.title}<br /><em>{copy.emphasis}</em></h2>
         <a className="contact-footer-email" href={`mailto:${email}`}>{email}</a>
       </div>
       <div className="contact-footer-links">
@@ -910,6 +920,12 @@ function App() {
   const [language, setLanguage] = useState("en");
   const [contactOpen, setContactOpen] = useState(false);
   const [locationOpen, setLocationOpen] = useState(false);
+  const scrollRef = useRef(null);
+  useHomeScroll(scrollRef, route === "home" && !contactOpen && !locationOpen);
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ top: 0, behavior: "instant" });
+  }, [route]);
 
   useEffect(() => {
     function handleHashChange() {
@@ -927,10 +943,10 @@ function App() {
   }, []);
 
   return (
-    <div className={`app-shell relative flex h-dvh min-h-dvh overflow-x-hidden overflow-y-auto bg-white lang-${language}`}>
+    <div ref={scrollRef} className={`app-shell relative flex h-dvh min-h-dvh overflow-x-hidden overflow-y-auto bg-white lang-${language}${route === "home" ? " is-home" : ""}`}>
       <Background route={route} />
 
-      <div className="relative z-10 flex min-h-full w-full flex-col">
+      <div className="site-content relative z-10 flex min-h-full w-full flex-col">
         <Navbar
           language={language}
           setLanguage={setLanguage}

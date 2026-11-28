@@ -77,9 +77,39 @@ export const profileContent = {
     }
   },
   homeAbout: {
-    en: { eyebrow: "The person behind the projects", link: "Get to know me", note: "A few cities. A lot of curiosity.", interests: ["Building AI products", "Golf", "Exploring new places"] },
-    zh: { eyebrow: "作品背后的我", link: "了解更多关于我", note: "走过一些城市，始终保持好奇。", interests: ["构建 AI 产品", "高尔夫", "走走看看"] },
-    es: { eyebrow: "La persona detrás de los proyectos", link: "Conóceme mejor", note: "Algunas ciudades. Mucha curiosidad.", interests: ["Crear productos de IA", "Golf", "Explorar nuevos lugares"] }
+    en: {
+      eyebrow: "The person behind the projects", link: "Read my story", contact: "Let's talk",
+      role: "AI product builder. Always curious.",
+      intro: "I explore product strategy, software, and creative AI — turning ideas into things people can use.",
+      statement: "From an idea to something useful.",
+      disciplines: [
+        { title: "Product", text: "Understand the problem, shape the experience, and find the reason a product should exist." },
+        { title: "Development", text: "Turn ideas into working software. Build, learn, and improve through real use." },
+        { title: "Creative AI", text: "Bring models, tools, and design together to turn imagination into images, stories, and experiences." }
+      ]
+    },
+    zh: {
+      eyebrow: "作品背后的我", link: "看看我的故事", contact: "聊一聊",
+      role: "做 AI 产品，也始终保持好奇。",
+      intro: "在产品策略、软件开发和 AI 创作之间探索，把想法做成真正有用的东西。",
+      statement: "从一个想法，到一个有用的产品。",
+      disciplines: [
+        { title: "产品", text: "从真实的问题出发，梳理产品的价值，也打磨每一次使用的体验。" },
+        { title: "开发", text: "把想法写成可以运行的软件，在构建和迭代中找到更好的答案。" },
+        { title: "AI 创作", text: "连接模型、工具与设计，让想象变成看得见、用得上的内容和体验。" }
+      ]
+    },
+    es: {
+      eyebrow: "La persona detrás de los proyectos", link: "Lee mi historia", contact: "Hablemos",
+      role: "Creo productos de IA. Siempre curioso.",
+      intro: "Exploro estrategia de producto, software e IA creativa para convertir ideas en herramientas útiles.",
+      statement: "De una idea a algo útil.",
+      disciplines: [
+        { title: "Producto", text: "Entender el problema, dar forma a la experiencia y encontrar la razón de ser de un producto." },
+        { title: "Desarrollo", text: "Convertir ideas en software que funciona. Construir, aprender y mejorar con el uso real." },
+        { title: "IA creativa", text: "Unir modelos, herramientas y diseño para convertir imaginación en imágenes, historias y experiencias." }
+      ]
+    }
   },
   footer: {
     en: { eyebrow: "Let's talk", title: "Let's make something", emphasis: "crazy together.", elsewhere: "Elsewhere", explore: "Explore", contact: "Get in touch", note: "Still curious. Still building." },
@@ -195,21 +225,9 @@ export const profileContent = {
     }
   ],
   projectsPage: {
-    en: {
-      title: "Projects that turn imagination into operating leverage.",
-      intro:
-        "A few things I have built, shaped, or helped reframe: agent workspaces, AI canvas workflows, and fashion tools that turn personal ideas into visual reality."
-    },
-    zh: {
-      title: "把想法变成系统，把灵感变成可用的产品。",
-      intro:
-        "这里放的是我做过、重构过或参与塑造过的项目：Agent 工作空间、AI 画布工作流，以及帮助用户把风格想法变成现实的时尚 AI 工具。"
-    },
-    es: {
-      title: "Proyectos que convierten imaginación en sistemas reales.",
-      intro:
-        "Una selección de proyectos que he construido, replanteado o ayudado a dar forma: workspaces de agentes, canvas de IA y herramientas de moda con IA."
-    }
+    en: { title: "Ideas, made real.", intro: "A selection of AI products and creative tools I've helped shape." },
+    zh: { title: "把想法，变成现实。", intro: "一些关于 AI 产品和创作工具的探索。" },
+    es: { title: "Ideas hechas realidad.", intro: "Una selección de productos de IA y herramientas creativas." }
   },
   projects: [
     {
@@ -227,9 +245,9 @@ export const profileContent = {
       demoVideo: assetPath("/demos/joyai.mp4"),
       posterImage: assetPath("/projects/joyai.png"),
       description: {
-        en: "An all-in-one AIGC creative platform bringing AI image generation, video creation, a creative canvas, and intelligent chat into one workflow — turning ideas into visual stories.",
-        zh: "集 AI 绘画、图片生成、视频创作、创意画布与智能对话于一体的一站式 AIGC 创作平台，让灵感在同一个工作流中变成图像、视频与创意内容。",
-        es: "Una plataforma creativa de IA generativa que reúne generación de imágenes, creación de video, un lienzo creativo y chat inteligente para convertir ideas en historias visuales."
+        en: "An all-in-one creative studio for AI images, video, and visual storytelling.",
+        zh: "一站式 AI 创作平台，让灵感变成图像和视频。",
+        es: "Un estudio creativo de IA para imágenes, vídeo e historias visuales."
       }
     },
     {
@@ -246,9 +264,9 @@ export const profileContent = {
       url: "https://matrix.build/",
       demoVideo: assetPath("/demos/matrix-marketplace.mp4"),
       description: {
-        en: "An agent-to-agent workspace concept rebuilt around a new commercial model: every person can spin up an AI-native company, coordinate specialized agents, and move from idea to operating structure.",
-        zh: "这是一个 Agent to Agent 工作空间。我重构了它之后的商业模式：每个人都可以开一家属于自己的 AI 原生公司，调度不同专长的 Agent，把想法推进成可以运转的组织结构。",
-        es: "Un concepto de workspace agent-to-agent reconstruido alrededor de un nuevo modelo comercial: cada persona puede crear una empresa nativa de IA, coordinar agentes especializados y convertir ideas en estructura operativa."
+        en: "An agent workspace for building and running an AI-native company.",
+        zh: "用 Agent 协作，把想法变成一家 AI 原生公司。",
+        es: "Un espacio de agentes para crear y gestionar una empresa nativa de IA."
       }
     },
     {
@@ -265,9 +283,9 @@ export const profileContent = {
       url: "https://flowith.io/home/",
       demoVideo: assetPath("/demos/flowith-1080p.mp4"),
       description: {
-        en: "An integrated AI canvas for creators and software builders, helping users combine research, generation, coding, and iteration into deliverable-grade outcomes inside one spatial workflow.",
-        zh: "这是一个 AI 画布。无论是创作者还是程序编码者，都可以在集成式画布里完成研究、生成、编码和迭代，最终产出可交付级的结果。",
-        es: "Un canvas integrado de IA para creadores y builders de software, ayudando a combinar investigación, generación, código e iteración en resultados listos para entregar."
+        en: "An AI canvas for research, creation, and coding in one workflow.",
+        zh: "在同一张 AI 画布里，完成研究、创作与编码。",
+        es: "Un lienzo de IA para investigar, crear y programar en un mismo flujo."
       }
     },
     {
@@ -284,9 +302,9 @@ export const profileContent = {
       url: "https://www.instagram.com/viba_me/",
       demoVideo: assetPath("/demos/viba.mov"),
       description: {
-        en: "A fashion AI tool that turns ideas into reality: try on styles from across the world, explore new identities, and find the version of yourself that feels most alive.",
-        zh: "这是一个时尚 AI 工具，让你的想法变成现实：帮你试穿这个世界上所有的风格，探索不同的自己，找到真正属于你的那一面。",
-        es: "Una herramienta de moda con IA que convierte ideas en realidad: prueba estilos de todo el mundo, explora nuevas identidades y encuentra la versión de ti que se siente más viva."
+        en: "Explore styles and try on new looks with AI.",
+        zh: "用 AI 试穿不同风格，找到更多面的自己。",
+        es: "Explora estilos y pruébate nuevos looks con IA."
       }
     }
   ]
