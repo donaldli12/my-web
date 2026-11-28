@@ -636,7 +636,6 @@ function ContactFooter({ language, onContact }) {
   return (
     <footer className="contact-footer" aria-labelledby="contact-footer-heading">
       <div className="contact-footer-invitation">
-        <p className="contact-footer-eyebrow">{copy.eyebrow}</p>
         <h2 id="contact-footer-heading"><span className="contact-footer-dot" aria-hidden="true" />{copy.title}<br /><em>{copy.emphasis}</em></h2>
         <a className="contact-footer-email" href={`mailto:${email}`}>{email}</a>
       </div>
