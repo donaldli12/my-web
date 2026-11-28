@@ -75,6 +75,11 @@ export const profileContent = {
       skills: "Habilidades"
     }
   },
+  footer: {
+    en: { eyebrow: "Let's talk", title: "Let's make something", emphasis: "crazy together.", elsewhere: "Elsewhere", explore: "Explore", contact: "Get in touch", note: "Still curious. Still building." },
+    zh: { eyebrow: "聊聊新想法", title: "一起把大胆的想法，", emphasis: "变成现实。", elsewhere: "在别处找到我", explore: "继续探索", contact: "保持联系", note: "保持好奇，继续创造。" },
+    es: { eyebrow: "Hablemos", title: "Creemos algo", emphasis: "extraordinario juntos.", elsewhere: "En otros lugares", explore: "Explora", contact: "Ponte en contacto", note: "Siempre curioso. Siempre creando." }
+  },
   hero: {
     en: {
       eyebrow: "AI Product Strategy / Software Engineering / Creative Systems",

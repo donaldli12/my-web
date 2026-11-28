@@ -585,7 +585,47 @@ function HomePage({ language, onContact }) {
           </div>
         </div>
       </section>
+      <ContactFooter language={language} onContact={onContact} />
     </main>
+  );
+}
+
+function ContactFooter({ language, onContact }) {
+  const copy = profileContent.footer[language];
+  const labels = profileContent.labels[language];
+  const { email, phone, instagram } = profileContent.contact;
+  const goToTop = () => document.querySelector(".app-shell")?.scrollTo({ top: 0, behavior: "instant" });
+
+  return (
+    <footer className="contact-footer" aria-labelledby="contact-footer-heading">
+      <div className="contact-footer-invitation">
+        <p className="contact-footer-eyebrow">{copy.eyebrow}</p>
+        <h2 id="contact-footer-heading">{copy.title}<br /><em>{copy.emphasis}</em></h2>
+        <a className="contact-footer-email" href={`mailto:${email}`}>{email}</a>
+      </div>
+      <div className="contact-footer-links">
+        <div>
+          <h3>{copy.elsewhere}</h3>
+          <a href={`https://www.instagram.com/${instagram}/`} target="_blank" rel="noreferrer">Instagram</a>
+          <a href="https://github.com/donaldli12" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+        <nav aria-label={copy.explore}>
+          <h3>{copy.explore}</h3>
+          <a href="#projects" onClick={goToTop}>{labels.projects}</a>
+          <a href="#me" onClick={goToTop}>{labels.me}</a>
+          <button type="button" onClick={onContact}>{labels.contact}</button>
+        </nav>
+        <div>
+          <h3>{copy.contact}</h3>
+          <a href={`mailto:${email}`}>{email}</a>
+          <a href={`tel:${phone.replace(/\s/g, "")}`}>{phone}</a>
+        </div>
+      </div>
+      <div className="contact-footer-bottom">
+        <p>© {new Date().getFullYear()} {profileContent.brand[language]}</p>
+        <p>{copy.note}</p>
+      </div>
+    </footer>
   );
 }
 
